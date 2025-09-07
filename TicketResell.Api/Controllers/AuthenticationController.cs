@@ -66,7 +66,7 @@ public class AuthenticationController : ControllerBase
 
         return ResponseParser.Result(result);
     }
-
+	//test
   [HttpGet("login-google")]
     public async Task<IActionResult> LoginWithGoogle([FromQuery] string accessToken)
     {
