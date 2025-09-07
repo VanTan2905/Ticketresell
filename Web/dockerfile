@@ -1,0 +1,31 @@
+# Use Node.js base image
+FROM node:20.17.0-alpine AS base
+
+WORKDIR /app
+
+COPY package*.json ./
+# Copy the node_modules to avoid npm install
+COPY ./node_modules ./node_modules
+# COPY package*.json ./
+# RUN npm install
+# Copy the rest of the app
+COPY . .
+
+ARG NODE_ENV=production
+ARG NEXT_PUBLIC_API_URL=http://localhost:5296
+ARG API_URL=http://api:8080
+ARG NEXTAUTH_SECRET=qOz3zgPyFFIntECZCB+KC0xLFrZYZ2HOcVLr5Dq146M=
+ARG NEXTAUTH_URL=http://localhost:3000
+
+ENV NODE_ENV=$NODE_ENV \
+    NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL \
+    API_URL=$API_URL \
+    NEXTAUTH_SECRET=$NEXTAUTH_SECRET \
+    NEXTAUTH_URL=$NEXTAUTH_URL
+# Build and expose port for production
+
+RUN npm run build
+EXPOSE 3000
+
+# Start Next.js in production mode
+CMD ["npm", "run", "start"]

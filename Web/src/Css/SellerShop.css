@@ -1,0 +1,68 @@
+.bg-seller-shop {
+  background: #fff;
+  color: #000;
+  padding-bottom: 5vh;
+}
+/* common class */
+
+.profile--image {
+  position: relative;
+  margin-top: 10vh;
+  max-width: 100%; /* Adjust width as necessary */
+  height: 40vh; /* Adjust height as necessary */
+  background: #f7f8fa;
+}
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.avatar-container {
+  width: 12vw;
+  height: 12vw;
+  position: absolute;
+  border-radius: 50%;
+  left: 7vw;
+  bottom: 0;
+  border: 5px solid #fff;
+  background: #f7f8fa;
+}
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.seller--info {
+  margin-top: 10vh;
+}
+
+.seller--title {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.seller--register--time {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.navbar--btn {
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  padding: 2vh 1vw;
+  border: 2px solid black;
+  display: inline-block;
+}
+.navbar--item {
+  padding: 10px 20px;
+  background-color: #f6f6f6;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}

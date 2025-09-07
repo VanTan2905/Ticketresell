@@ -1,0 +1,36 @@
+# Ignore .env files for sensitive environment variables
+.env
+**/*.env
+
+# Ignore user-specific files
+*.csproj.user
+*.suo
+.vscode/
+.idea/
+
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore published files
+app.publish/
+publish/
+
+# Ignore logs and debug files
+*.log
+logs/
+
+# Ignore temporary files and folders
+*.tmp
+*.temp
+*.pid
+*.mdf
+*.ldf
+
+# Ignore local configurations and secrets
+secrets.json
+appsettings.Development.json
+
+# Ignore Docker-related files
+Dockerfile.*
+docker-compose.*

@@ -1,0 +1,126 @@
+/* Main container */
+.modernContactContainer {
+    background: #1abc9c00;
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Contact form wrapper */
+  .modernContactWrapper {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .modernContactWrapper:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Title */
+  .modernTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #1abc9c, #3498db);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+  }
+  
+  /* Description */
+  .modernDescription {
+    font-size: 1.1rem;
+    color: #555555;
+    margin-bottom: 30px;
+  }
+  
+  /* Form elements */
+  .modernFormGroup {
+    margin-bottom: 20px;
+  }
+  
+  .modernInput, .modernTextarea {
+    width: 100%;
+    padding: 14px;
+    background-color: #f9fafb;
+    border: 1px solid #d1d8de;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333333;
+    transition: all 0.3s ease;
+  }
+  
+  .modernInput:focus, .modernTextarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+  }
+  
+  /* Textarea */
+  .modernTextarea {
+    height: 150px;
+    resize: none;
+  }
+  
+  /* Submit Button */
+  .modernSubmitButton {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #3498db, #1abc9c);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .modernSubmitButton:hover {
+    background-color: #1abc9c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modernSubmitButton:disabled {
+    opacity: 0.6;
+  }
+  
+  /* Success message */
+  .successMessage {
+    color: #27ae60;
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+  
+  /* Error message */
+  .modernErrorMessage {
+    color: #e74c3c;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Social Icons */
+  .modernSocialIcons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .modernIcon {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .modernIcon:hover {
+    color: #3498db;
+    transform: translateY(-3px);
+  }
+  

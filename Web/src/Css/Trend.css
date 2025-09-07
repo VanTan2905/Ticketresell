@@ -1,0 +1,227 @@
+.ranking{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rank-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    padding-left: 0;
+    padding-right: 0;
+    border-bottom: 1px solid rgb(139, 139, 139);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: gray;
+}
+
+
+.left-rank .rank-bar-container{
+    padding-left: 6.5rem;
+    background-color: white;
+    padding-right: 2rem;
+    width: 50vw;
+}
+.right-rank .rank-bar-container{
+    padding-left: 2rem;
+    background-color: white;
+    padding-right: 6.5rem;
+    width: 50vw;
+}
+
+.ticket-image{
+    min-width: 14rem;
+    max-width: 14rem;
+    height: 14rem;  /* Set fixed height for consistent appearance */
+    object-fit: cover;  /* This crops the image to fill the container */
+    object-position: center;  /* Centers the cropped view */
+}
+
+.ticket img{
+    height: 8rem;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+
+.ticket {
+    display: flex;
+    align-items: center;
+}
+
+.left-rank .left-info {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.left-rank .right-info {
+    display: flex;
+    align-items: center;
+}
+
+.right-info span {
+    min-width: 4rem;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+
+.left-info span {
+    display: flex;
+    min-width: 3rem;
+    justify-content: flex-start;
+
+}
+
+.right-rank .right-info {
+    display: flex;
+    align-items: center;
+}
+.rank-bar{
+    background-color: white;
+}
+.right-rank .left-info {
+    display: flex;
+    align-items: center;
+}
+
+.left-info span,
+.right-info span {
+    margin-right: 10px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    padding-top: 3rem;
+}
+
+.navbar-left button, .navbar-right button{
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    color: gray;
+    font-weight: bold;
+}
+
+.navbar-right button.isactivate,
+.soon.isactivate, .trend.isactivate{
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+
+.navbar-left button:hover, .navbar-right button:hover{
+    color: black;
+    cursor: pointer;
+}
+
+
+.navbar-left div{
+    padding: 3px;
+    background-color:  rgb(237, 237, 237);
+    margin-left: 5rem;
+    border-radius: 10px;
+}
+
+.navbar-right{
+    margin-right: 5rem;
+    padding: 3px;
+    background-color:  rgb(237, 237, 237);
+    border-radius: 10px;
+}
+
+.rank-item-card{
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    cursor: pointer;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+
+.rank-item-card:hover{
+    background-color: rgb(242, 242, 242);
+}
+
+
+@media (max-width: 1300px) {
+    .left-rank .rank-bar-container{
+        padding-left: 1rem;
+        background-color: white;
+        padding-right: 1rem;
+        width: 50vw;
+    }
+    .right-rank .rank-bar-container{
+        padding-left: 1rem;
+        background-color: white;
+        padding-right: 1rem;
+        width: 50vw;
+    }
+
+
+    .navbar-left div{
+        background-color:  rgb(237, 237, 237);
+        margin-left: 0rem;
+    }
+    .navbar-right{
+        margin-right: 0rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .navbar{
+          display: block;
+          justify-content: center;
+    }
+    .right-rank{
+        display: none;
+    }
+    .left-rank .rank-bar-container{
+        width: 100vw;
+    }
+    .navbar-right{
+        padding: 3px;
+        background-color:  rgb(237, 237, 237);
+        margin-left: 0rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+        max-width: 480px;
+        
+    }
+  }
+
+  @media (max-width: 500px) {
+    .rank-item-card{
+        padding: 0;
+    }
+
+    .left-info img{
+        margin-left: -1.5rem;
+    }
+    .right-info .price{
+        display: none;
+    }
+
+    .ticket div{
+        width: 5rem;
+    }
+    .navbar-right button{
+        width: 4rem;
+        text-align: center;
+        display: flex;
+        justify-content: center; /* Center text horizontally */
+        align-items: center;
+    }
+    .navbar-right{
+        width: 22.8rem;
+    }
+  }

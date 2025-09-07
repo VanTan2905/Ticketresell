@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.chat-fullpage-mode header,
+.chat-fullpage-mode nav,
+.chat-fullpage-mode footer {
+  display: none !important;
+}

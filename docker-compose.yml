@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=12345678Kg!  # Secure this password for production
+    ports:
+      - "1433:1433"
+    networks:
+      - ticketresell-network
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "12345678Kg!", "-Q", "SELECT 1", "-b","-C"]
+      interval: 20s
+      timeout: 15s
+      retries: 5
+      start_period: 60s
+
+  redis:
+    image: redis:7-alpine  # Use a lightweight image of Redis
+    ports:
+      - "6379:6379"
+    networks:
+      - ticketresell-network
+
+  api:
+    image: vkev25811/ticketresell-api:latest
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - SQLSERVER=Server=sqlserver,1433;Database=TicketResellManagement;User Id=sa;Password=12345678Kg!;Integrated Security=False;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;
+      - BASE_URL=http://localhost:3000
+      - MOMO_PARTNER_CODE=MOMONPMB20210629
+      - MOMO_ACCESS_KEY=Q2XhhSdgpKUlQ4Ky
+      - MOMO_SECRET_KEY=k6B53GQKSjktZGJBK2MyrDa7w9S6RyCf
+      - MOMO_API_URL=https://test-payment.momo.vn
+      - VNPAY_TMN_CODE=YKKGJCRE
+      - VNPAY_HASH_SECRET=KYTM58WYI5BOUXK5HDS2TCO2TAE2TZIS
+      - VNPAY_API_URL=http://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+      - PAYPAL_CLIENT_ID=AXpGW7elF1tOS_mdA1raixd-8EyOAizqd9ggNbYx1NcIXJPgVsoSlSjAsHCwN3UcJjyLyhbqpkzLD__4
+      - PAYPAL_SECRET=EPdA2EIzFD78Y2yiBhNiMLuLqHsDNOCL7wfMuVPYL7KKHFiqu3GanTwLJxARc5angcXhaT-dEhoSVEWo
+      - PAYPAL_API_URL=https://api-m.sandbox.paypal.com
+      - RAPIDAPI_KEY=b2abc07babmsh30e6177f039fd88p18a238jsn5ec9739e64ae
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_PORT=587
+      - SMTP_USERNAME=huynhkhang7452@gmail.com
+      - SMTP_PASSWORD=oaan yaqh xcwd femg
+      - FROM_EMAIL=huynhkhang7452@gmail.com
+      - FROM_DISPLAY_NAME=TicketResell
+      - IS_DOCKER=true
+      - REDIS_CONNECTION=redis:6379  # Update to use the Redis service
+    ports:
+      - "5296:8080"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - ticketresell-network
+  
+  frontend:
+    build:
+      context: ./Web
+      dockerfile: dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:5296
+        API_URL: api:8080
+        NEXTAUTH_URL: http://localhost:3000
+        NODE_ENV: production
+    environment:
+      - MONGODB_URI=mongodb+srv://huynhkhang7452:WylvsJoC2O3AZYa9@cluster0.39ecwja.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - NODE_ENV=production
+      - PAYPAL_CLIENT_ID=AXpGW7elF1tOS_mdA1raixd-8EyOAizqd9ggNbYx1NcIXJPgVsoSlSjAsHCwN3UcJjyLyhbqpkzLD__4
+      - PAYPAL_SECRET=EPdA2EIzFD78Y2yiBhNiMLuLqHsDNOCL7wfMuVPYL7KKHFiqu3GanTwLJxARc5angcXhaT-dEhoSVEWo
+      - PAYPAL_BASE_URL=https://api-m.sandbox.paypal.com
+      - EXCHANGE_RATE_API_KEY=45fc0be5cc552d54f6b69d1e
+      - GOOGLE_CLIENT_ID=1011237427118-fv7ae0ih83l3i0thvmo16etb0sscehf3.apps.googleusercontent.com
+      - GOOGLE_CLIENT_SECRET=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
+      - BASE_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=qOz3zgPyFFIntECZCB+KC0xLFrZYZ2HOcVLr5Dq146M=
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXT_PUBLIC_API_URL=http://localhost:5296
+      - API_URL=api:8080
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    networks: 
+      - ticketresell-network
+  
+
+networks:
+  ticketresell-network:
+    driver: bridge

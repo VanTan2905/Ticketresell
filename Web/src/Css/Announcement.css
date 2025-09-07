@@ -1,0 +1,54 @@
+.announcement-container {
+    background-color: #efeff01c; /* Light greenish background */
+    color: #8a866e; /* Green text to match the theme */
+    text-align: left; /* Canh trái nội dung */
+    padding: 8px 1rem; /* Giữ padding với khoảng cách bên trái và bên phải */
+    font-size: 1rem;
+    font-weight: 500;
+    overflow: hidden;
+    position: fixed; /* Chuyển từ sticky sang fixed */
+    top: 71px; /* Đặt vị trí bên dưới navbar */
+    z-index: 999; /* Đảm bảo nó nằm trên các thành phần khác */
+    width: calc(100% + 1rem); /* Chiều rộng với khoảng cách bên trái và phải */
+}
+
+.announcement-content {
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    white-space: nowrap; /* Ngăn chặn văn bản xuống dòng */
+    animation: scroll-left 15s linear infinite; /* Animation cho văn bản chạy */
+}
+
+.announcement-icon {
+    width: 42px; /* Tăng kích thước của biểu tượng lên 32px */
+    height: 50%; /* Tự động điều chỉnh chiều cao */
+    margin-right: 8px; /* Khoảng cách giữa logo và văn bản */
+}
+
+.announcement-content p {
+    margin: 0; /* Bỏ margin cho đoạn văn */
+    padding-left: 0; /* Bỏ padding bên trái */
+    padding-right: 2rem; /* Khoảng cách giữa các đoạn văn */
+    font-family: 'Inter', sans-serif; /* Đặt font cho đoạn văn */
+    display: inline-block; /* Đảm bảo nó được hiển thị trên cùng một dòng */
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%); /* Bắt đầu từ bên phải */
+    }
+    100% {
+        transform: translateX(-100%); /* Kết thúc ở bên trái */
+    }
+}
+
+@media (max-width: 768px) {
+    .announcement-container {
+        font-size: 0.9rem; /* Giảm kích thước chữ */
+        padding: 6px 1rem; /* Giảm padding */
+    }
+
+    .announcement-content p {
+        padding-right: 1rem; /* Giảm khoảng cách giữa các đoạn văn */
+    }
+}

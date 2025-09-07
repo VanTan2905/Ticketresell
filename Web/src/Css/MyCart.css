@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: #0070f3;
+    --secondary-color: #28a745;
+    --hover-color: #218838;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --border-color: #ddd;
+    --scroll-indicator-color: #666;
+}
+
+.cart-container {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    background-color: #fff;
+    color: var(--text-color);
+    max-width: 100vw;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    flex-wrap: wrap;
+    margin-top: 150px;
+    overflow: hidden;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem; /* Tăng kích thước tiêu đề */
+    font-weight: bold;
+    color: var(--text-color);
+    width: 100%;
+}
+
+.cart-table-container {
+    flex: 2;
+    max-height: 70vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.scroll-indicator {
+    text-align: center;
+    color: var(--scroll-indicator-color);
+    margin-top: 10px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 25px 30px; /* Tăng padding cho hàng */
+    font-size: 1.5rem;   /* Tăng kích thước chữ */
+    text-align: left;
+}
+
+.cart-table thead th {
+    padding: 30px 30px; /* Tăng padding cho tiêu đề */
+    font-size: 1.6rem;  /* Tăng kích thước font chữ tiêu đề */
+    font-weight: bold;
+    text-align: left;
+}
+
+.cart-table thead {
+    background-color: var(--text-color);
+    color: #fff;
+}
+
+.cart-table tbody tr:nth-child(odd) {
+    background-color: var(--background-color);
+}
+
+.cart-table tbody tr {
+    height: 100px; /* Tăng chiều cao của hàng */
+}
+
+.ticket-image {
+    width: 120px; /* Tăng kích thước ảnh */
+    height: auto;
+    margin-right: 10px;
+}
+
+.Nav {
+    position: sticky;
+    top: 0;
+    background-color: rgb(75, 75, 75);
+    z-index: 100;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.Nav th {
+    position: sticky;
+    top: 0;
+    background-color: var(--text-color);
+    color: #fff;
+    z-index: 101;
+    padding: 10px;
+    text-align: left;
+}
+
+.cart-summary {
+    flex: 1;
+    padding: 40px; /* Tăng padding cho phần tóm tắt */
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    border-radius: 10px;
+    font-size: 1.4rem; /* Tăng kích thước font chữ */
+}
+
+.summary-details {
+    text-align: center;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.payment-method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.payment-method.selected {
+    border-color: var(--primary-color);
+}
+
+.checkout-btn {
+    padding: 15px 40px; /* Tăng kích thước nút checkout */
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px; /* Tăng kích thước chữ của nút */
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 10px; /* Tăng padding cho container */
+    background-color: #dfdfdf;
+}
+
+.quantity-btn {
+    background-color: transparent;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px; /* Tăng kích thước chữ của nút */
+    color: var(--text-color);
+    outline: none;
+    transition: background-color 0.2s;
+}
+
+.quantity-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.quantity-input {
+    width: 50px; /* Tăng kích thước input */
+    text-align: center;
+    border: none;
+    font-size: 20px; /* Tăng kích thước chữ */
+    color: var(--text-color);
+    outline: none;
+    background-color: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cart-container {
+        flex-direction: column;
+    }
+
+    .cart-table-container {
+        max-height: 250px;
+    }
+
+    .cart-summary {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .quantity-btn {
+        font-size: 18px; /* Điều chỉnh kích thước nút cho mobile */
+    }
+
+    .quantity-input {
+        font-size: 18px; /* Điều chỉnh kích thước input cho mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .ticket-image {
+        width: 80px; /* Điều chỉnh kích thước ảnh cho mobile */
+    }
+}

@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-ticket-detail {
+  background: #ffffff;
+}
+.containerr {
+  padding-top: 7vh;
+  padding-bottom: 5vh;
+}
+.ticket--detail {
+  margin-bottom: 10vh;
+}
+
+.ticket--price--block {
+  margin-top: 1vh;
+  color: #000;
+  background-color: #fdfdfd;
+  border: 1px solid rgba(18 18 18 / 12%);
+}
+.Tag {
+  margin-right: 2vh;
+}
+.ticket--price {
+  padding-left: 1vw;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #000;
+}
+.cta {
+  display: flex;
+}
+.dropdown {
+  margin-top: 1vh;
+}
+.tag--list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tag--list--item {
+  border: 1px solid rgba(18 18 18 / 12%);
+  padding: 3px 5px;
+  margin-right: 1vw;
+  border-radius: 10px;
+  font-weight: 400;
+}
+.ticket--detail--btn {
+  border: 1px solid rgba(18 18 18 / 12%);
+}
+.ticket--btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background: #27ae60;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: #fff;
+  border-radius: 5px;
+}
+.ticket--btn:hover {
+  background-color: #2ecc71;
+}
+
+.cart--icon {
+  margin-right: 1vw;
+}
+.seller--link {
+  text-decoration: none;
+  color: #27ae60;
+}
+.ticket--desc {
+  padding-bottom: 10vh;
+}
+.ticket--related {
+  margin-top: 90px;
+  border-radius: 10px;
+}
+
+.ticket--title {
+  margin-bottom: 5vh;
+  color: #000;
+}
+
+.ticket--item {
+  background: #fdfdfd;
+  border: 1px solid rgba(18 18 18 / 12%);
+  margin-right: 0.5vw;
+}
+
+.ticket--list {
+  display: flex;
+  padding: 0 2vw;
+}
+
+.ticket--related--btn {
+  padding: 2vh 0.1vw;
+}
+.ticket--number {
+  display: flex;
+  align-items: center;
+}
+
+.number--btn {
+  border: 1px solid rgba(18 18 18 / 12%);
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+
+.number--btn:hover {
+  background-color: lightgray;
+}
+.number--block {
+  padding: 2px 2vw;
+  border: 1px solid rgba(18 18 18 / 12%);
+  border-radius: 5px;
+  margin: 0 0.25vw;
+}
+.movie-card:hover {
+  opacity: 1;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1vw;
+}

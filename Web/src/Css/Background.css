@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Ensure this is set */
+    min-height: 130vh;
+  }
+
+.test{
+    height: 150vh;
+    width: 20vw;
+    background-color: black;
+}
+
+.Background {
+    position: absolute;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
+    background-image: url('../../public/images/Background-default.jpg'); /* Set the background image */
+    background-size: cover; /* Make sure the image covers the entire viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure no scrollbars appear */
+    z-index: -3;
+    filter: blur(30px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Frontground {
+    min-height: 40vh; /* Minimum height to cover the viewport */
+    width: 100vw;       /* Full width of the viewport */
+    background: linear-gradient(to top, white 10%, transparent); /* Gradient from white to transparent */
+    z-index: 1; /* Ensure this layer is on top */
+    position: relative; /* Ensure it's positioned relative to its content */
+}
+
+
+.Middleground {
+    position: absolute; /* Overlay on top of the background */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw;  /* Full width of the viewport */
+    background: linear-gradient(to top, transparent, black 45%); /* Gradient from white at 70% to transparent */
+    z-index: -2; /* Make sure this layer is on top */
+    transform: translate(0, -65vh);
+}
+
+html, body {
+    overflow-x: hidden;
+}
